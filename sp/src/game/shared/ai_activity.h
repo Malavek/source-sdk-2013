@@ -377,6 +377,10 @@ typedef enum
 	ACT_SHOTGUN_RELOAD_FINISH,
 	ACT_SHOTGUN_PUMP,
 
+	// Glock specialty activities
+	ACT_GLOCK_FIRELAST,
+	ACT_GLOCK_RELOADEMPTY,
+
 	// SMG2 special activities
 	ACT_SMG2_IDLE2,
 	ACT_SMG2_FIRE2,

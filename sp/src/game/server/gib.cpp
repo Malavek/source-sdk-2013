@@ -289,6 +289,27 @@ void CGib::SpawnSpecificGibs(	CBaseEntity*	pVictim,
 }
 
 //------------------------------------------------------------------------------
+// Purpose : 
+//------------------------------------------------------------------------------
+void CGib::SpawnAngularGibs(CBaseEntity* pVictim, const QAngle& vecAngles, int nNumGibs, float vMinVelocity, float vMaxVelocity, const char* cModelName, float flLifetime)
+{
+	for (int i = 0; i < nNumGibs; i++)
+	{
+		CGib* pGib = CREATE_ENTITY(CGib, "gib");
+		pGib->Spawn(cModelName);
+		pGib->m_nBody = i;
+		pGib->InitGib(pVictim, vMinVelocity, vMaxVelocity);
+		pGib->m_lifeTime = flLifetime;
+		pGib->SetLocalAngles(vecAngles);
+
+		if (pVictim != NULL)
+		{
+			pGib->SetOwnerEntity(pVictim);
+		}
+	}
+}
+
+//------------------------------------------------------------------------------
 // Purpose : Spawn random gibs of the given gib type
 // Input   :
 // Output  :

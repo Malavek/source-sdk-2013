@@ -12,7 +12,7 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-STUB_WEAPON_CLASS( cycler_weapon, WeaponCycler, C_BaseCombatWeapon );
+STUB_WEAPON_CLASS(cycler_weapon, WeaponCycler, C_BaseCombatWeapon);
 
 STUB_WEAPON_CLASS( weapon_binoculars, WeaponBinoculars, C_BaseHLCombatWeapon );
 STUB_WEAPON_CLASS( weapon_bugbait, WeaponBugBait, C_BaseHLCombatWeapon );
@@ -33,6 +33,8 @@ STUB_WEAPON_CLASS( weapon_shotgun, WeaponShotgun, C_BaseHLCombatWeapon );
 STUB_WEAPON_CLASS( weapon_smg1, WeaponSMG1, C_HLSelectFireMachineGun );
 STUB_WEAPON_CLASS( weapon_357, Weapon357, C_BaseHLCombatWeapon );
 STUB_WEAPON_CLASS( weapon_crossbow, WeaponCrossbow, C_BaseHLCombatWeapon );
+STUB_WEAPON_CLASS (weapon_wrench, WeaponWrench, C_BaseHLBludgeonWeapon);
+STUB_WEAPON_CLASS (weapon_glock, WeaponGlock, C_BaseHLCombatWeapon);
 #ifndef MAPBASE
 STUB_WEAPON_CLASS( weapon_slam, Weapon_SLAM, C_BaseHLCombatWeapon );
 #endif
