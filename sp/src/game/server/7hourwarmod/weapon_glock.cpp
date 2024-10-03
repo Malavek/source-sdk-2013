@@ -21,8 +21,8 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-#define	GLOCK_FASTEST_REFIRE_TIME		0.1f
-#define	GLOCK_FASTEST_DRY_REFIRE_TIME	0.2f
+#define	GLOCK_FASTEST_REFIRE_TIME		0.05f
+#define	GLOCK_FASTEST_DRY_REFIRE_TIME	0.1f
 
 #define	GLOCK_ACCURACY_SHOT_PENALTY_TIME		0.2f	// Applied amount of time each shot adds to the time we must recover from
 #define	GLOCK_ACCURACY_MAXIMUM_PENALTY_TIME	1.5f	// Maximum penalty to deal out
@@ -104,7 +104,7 @@ public:
 
 	virtual float GetFireRate( void ) 
 	{
-		return 0.35f; 
+		return 0.2f; 
 	}
 
 	DECLARE_ACTTABLE();

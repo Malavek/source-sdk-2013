@@ -306,7 +306,7 @@ void CNPC_Bullsquid::HandleAnimEvent( animevent_t *pEvent )
 	{
 		case BSQUID_AE_SPIT:
 		{
-			if ( GetEnemy() )
+			if ( GetEnemy()->Classify() != CLASS_EARTH_FAUNA) //don't launch giant acid balls at birds, only eat them if they're next to you
 			{
 				Vector vSpitPos;
 				GetAttachment("mouth", vSpitPos);
