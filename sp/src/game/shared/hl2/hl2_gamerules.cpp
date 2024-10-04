@@ -325,6 +325,12 @@ ConVar	sk_max_pistol			( "sk_max_pistol","0", FCVAR_REPLICATED);
 ConVar	sk_plr_dmg_smg1			( "sk_plr_dmg_smg1","0", FCVAR_REPLICATED );
 ConVar	sk_npc_dmg_smg1			( "sk_npc_dmg_smg1","0", FCVAR_REPLICATED);
 ConVar	sk_max_smg1				( "sk_max_smg1","0", FCVAR_REPLICATED);
+// CUSTOM!!
+
+ConVar	sk_plr_dmg_9mm			("sk_plr_dmg_9mm", "0", FCVAR_REPLICATED );
+ConVar	sk_npc_dmg_9mm			("sk_npc_dmg_9mm", "0", FCVAR_REPLICATED );
+ConVar	sk_max_9mm				(" sk_max_9mm", "0", FCVAR_REPLICATED );
+
 
 // FIXME: remove these
 //ConVar	sk_plr_dmg_flare_round	( "sk_plr_dmg_flare_round","0", FCVAR_REPLICATED);
@@ -392,11 +398,6 @@ ConVar	sk_max_gauss_round		( "sk_max_gauss_round", "0", FCVAR_REPLICATED );
 ConVar	sk_npc_dmg_gunship			( "sk_npc_dmg_gunship", "0", FCVAR_REPLICATED );
 ConVar	sk_npc_dmg_gunship_to_plr	( "sk_npc_dmg_gunship_to_plr", "0", FCVAR_REPLICATED );
 
-// CUSTOM!!
-
-ConVar	sk_plr_dmg_9mm( "sk_plr_dmg_9mm", "0", FCVAR_REPLICATED );
-ConVar	sk_npc_dmg_9mm( "sk_npc_dmg_9mm", "0", FCVAR_REPLICATED );
-ConVar	sk_max_9mm( " sk_max_9mm", "0", FCVAR_REPLICATED );
 
 //-----------------------------------------------------------------------------
 // Purpose: 
