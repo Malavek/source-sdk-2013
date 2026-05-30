@@ -1468,7 +1468,7 @@ float C_BaseAnimating::GetPoseParameter( int iPoseParameter )
 	if ( pStudioHdr->GetNumPoseParameters() < iPoseParameter )
 		return 0.0f;
 
-	if ( iPoseParameter < 0 )
+	if ( iPoseParameter < 0 || iPoseParameter >= MAXSTUDIOPOSEPARAM )
 		return 0.0f;
 
 	return m_flPoseParameter[iPoseParameter];
@@ -1531,35 +1531,32 @@ float C_BaseAnimating::ClampCycle( float flCycle, bool isLooping )
 //-----------------------------------------------------------------------------
 const Vector& C_BaseAnimating::ScriptGetAttachmentOrigin( int iAttachment )
 {	
-
 	static Vector absOrigin;
-	static QAngle qa;
+	QAngle qa;
 
 	C_BaseAnimating::GetAttachment( iAttachment, absOrigin, qa );
 
 	return absOrigin;
 }
 
-const Vector& C_BaseAnimating::ScriptGetAttachmentAngles( int iAttachment )
+const QAngle& C_BaseAnimating::ScriptGetAttachmentAngles( int iAttachment )
 {	
-
-	static Vector absOrigin;
-	static Vector absAngles;
 	static QAngle qa;
+	Vector absOrigin;
 
 	C_BaseAnimating::GetAttachment( iAttachment, absOrigin, qa );
-	absAngles.x = qa.x;
-	absAngles.y = qa.y;
-	absAngles.z = qa.z;
-	return absAngles;
+	return qa;
 }
 
-HSCRIPT C_BaseAnimating::ScriptGetAttachmentMatrix( int iAttachment )
+HSCRIPT_RC C_BaseAnimating::ScriptGetAttachmentMatrix( int iAttachment )
 {	
-	static matrix3x4_t matrix;
+	matrix3x4_t *matrix = new matrix3x4_t;
 
-	C_BaseAnimating::GetAttachment( iAttachment, matrix );
-	return g_pScriptVM->RegisterInstance( &matrix );
+	if ( C_BaseAnimating::GetAttachment( iAttachment, *matrix ) )
+		return g_pScriptVM->RegisterInstance( matrix, true );
+
+	delete matrix;
+	return NULL;
 }
 
 void C_BaseAnimating::ScriptGetBoneTransform( int iBone, HSCRIPT hTransform )
@@ -6057,7 +6054,7 @@ float C_BaseAnimating::SetPoseParameter( CStudioHdr *pStudioHdr, int iParameter,
 		return flValue;
 	}
 
-	if (iParameter >= 0)
+	if (iParameter >= 0 && iParameter < MAXSTUDIOPOSEPARAM)
 	{
 		float flNewValue;
 		flValue = Studio_SetPoseParameter( pStudioHdr, iParameter, flValue, flNewValue );
